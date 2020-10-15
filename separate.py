@@ -20,8 +20,12 @@ print(infile.getNumPages())
 for i in range(0, numOfAllPages):
   output = PdfFileWriter()
 
-  p = infile.getPage(i)
-  output.addPage(p)
+  try:
+    page = infile.getPage(i)
+    output.addPage(page)
+  except IndexError:
+    print('There isnt provided page in file')
+    exit()
 
   with open(name_to_save + '-' + str(i + 1) + '.pdf', 'wb') as f:
     output.write(f)
