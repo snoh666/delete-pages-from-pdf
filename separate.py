@@ -11,7 +11,7 @@ name_to_save = input('Input name for file to save as: ')
 if '.pdf' in name_to_save:
   name_to_save = name_to_save.split('.pdf')[0]
 
-infile = PdfFileReader(filename_to_open, 'rb')
+infile = PdfFileReader(filename_to_open + '.pdf', 'rb')
 
 numOfAllPages = infile.getNumPages()
 
