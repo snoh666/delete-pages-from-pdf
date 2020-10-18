@@ -26,5 +26,5 @@ for filenameToOpen in files:
       page = infile.getPage(i)
       output.addPage(page)
 
-with open(name_to_save + '-' + str(i + 1) + '.pdf', 'wb') as f:
+with open(name_to_save + '-' + '.pdf', 'wb') as f:
   output.write(f)
