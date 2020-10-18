@@ -15,16 +15,26 @@ stringPagesToKeep = input('Provide number of page to extract (separate with comm
 pagesToKeep = []
 
 for pageNumberString in stringPagesToKeep:
-  pageNumber = int(pageNumberString.strip()) - 1
+  pageNumber = pageNumberString
+  if not '-' in pageNumberString :
+    pageNumber = int(pageNumberString.strip()) - 1
+
   pagesToKeep.append(pageNumber)
 
 infile = PdfFileReader(filename_to_open + '.pdf', 'rb')
 output = PdfFileWriter()
 
-for i in pagesToKeep:
+for item in pagesToKeep:
   try:
-    page = infile.getPage(i)
-    output.addPage(page)
+    if isinstance(item, str):
+      if '-' in item:
+        loopRange = item.strip().split('-')
+        for index in range(int(loopRange[0]) - 1, int(loopRange[1])):
+          page = infile.getPage(index)
+          output.addPage(page)
+    else:
+        page = infile.getPage(item)
+        output.addPage(page)
   except IndexError:
     print('There isnt provided page in file')
     exit()
