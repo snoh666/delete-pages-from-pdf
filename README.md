@@ -1,4 +1,3 @@
-# pdf-file-manage
 # Overview
 Simple python scripts to manage pdf files, as Windows doesn't have free software to for example: split, extract, join different files.
 
