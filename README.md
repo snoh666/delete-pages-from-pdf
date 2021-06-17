@@ -1,6 +1,10 @@
 # Overview
 Simple python scripts to manage pdf files, as Windows doesn't have free software to for example: split, extract, join different files.
 
+# Installation
+Install python packages requirements with predefined `requirements.txt`.
+`pip3 install -r requirements.txt`
+
 # Usage
 
 Each script has basic command line interface for you to input required information.
